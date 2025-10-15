@@ -598,6 +598,16 @@ void py_helper_update_framebuffer(image_t *img) {
 
 // TODO need to pass a CSI here.
 void py_helper_set_to_framebuffer(image_t *img) {
+    #ifdef UNIX
+    // Unix port has no physical framebuffer - allocate image normally
+    // This allows ImageIO and other functions to work with copy_to_fb=true
+    uint32_t size = image_size(img);
+    if (!img->data) {
+        image_alloc(img, size);
+    }
+    return;
+    #endif
+
     #if MICROPY_PY_CSI
     omv_csi_t *csi = omv_csi_get(-1);
     framebuffer_t *fb = csi->fb;

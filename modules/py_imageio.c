@@ -493,8 +493,14 @@ static mp_obj_t py_imageio_make_new(const mp_obj_type_t *type, size_t n_args, si
         file_t *fp = &stream->fp;
         stream->type = IMAGE_IO_FILE_STREAM;
         stream->count = 0;
+        stream->offset = 0;
+        stream->ms = mp_hal_ticks_ms();
 
-        char mode = mp_obj_str_get_str(args[1])[0];
+        const char *mode_str = mp_obj_str_get_str(args[1]);
+        if (strlen(mode_str) == 0) {
+            mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Mode string cannot be empty"));
+        }
+        char mode = mode_str[0];
 
         if (mode == 'w') {
             file_open(fp, mp_obj_str_get_str(args[0]), false, FA_WRITE | FA_CREATE_ALWAYS);
@@ -503,12 +509,18 @@ static mp_obj_t py_imageio_make_new(const mp_obj_type_t *type, size_t n_args, si
             file_write(fp, string, sizeof(string) - 1); // exclude null terminator
         } else if (mode == 'r') {
             uint8_t version_hi, version_lo;
+            // FA_OPEN_EXISTING is semantically meaningful even though VFS layer only checks FA_WRITE bit
             file_open(fp, mp_obj_str_get_str(args[0]), false, FA_READ | FA_OPEN_EXISTING);
             file_read_check(fp, "OMV IMG STR ", 12); // Magic
             file_read_check(fp, "V", 1);
             file_read(fp, &version_hi, 1);
             file_read_check(fp, ".", 1);
             file_read(fp, &version_lo, 1);
+
+            // Validate that version bytes are digits before arithmetic
+            if (version_hi < '0' || version_hi > '9' || version_lo < '0' || version_lo > '9') {
+                mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Invalid version format"));
+            }
 
             stream->version = ((version_hi - '0') * 10) + (version_lo - '0');
 
@@ -517,7 +529,7 @@ static mp_obj_t py_imageio_make_new(const mp_obj_type_t *type, size_t n_args, si
                 && (stream->version != NEW_PIXFORMAT_VER)) {
                 mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Expected version V1.0, V1.1, or V2.0"));
             }
-        } else if ((mode != 'W') && (mode != 'w')) {
+        } else {
             mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Invalid stream mode, expected 'r' or 'w'"));
         }
     #endif
@@ -545,6 +557,8 @@ static mp_obj_t py_imageio_make_new(const mp_obj_type_t *type, size_t n_args, si
 
         stream->count = mp_obj_get_int(args[1]);
         stream->size = IMAGE_T_SIZE_ALIGNED + OMV_ALIGN_TO(image_size(&image), IMAGE_ALIGNMENT);
+        stream->offset = 0;
+        stream->ms = mp_hal_ticks_ms();
 
         fb_alloc_mark();
         stream->buffer = fb_alloc(stream->count * stream->size, FB_ALLOC_PREFER_SIZE | FB_ALLOC_CACHE_ALIGN);
@@ -552,9 +566,6 @@ static mp_obj_t py_imageio_make_new(const mp_obj_type_t *type, size_t n_args, si
     } else {
         mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Invalid stream type"));
     }
-
-    stream->offset = 0;
-    stream->ms = mp_hal_ticks_ms();
 
     return MP_OBJ_FROM_PTR(stream);
 }
