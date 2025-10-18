@@ -36,6 +36,10 @@ OMV_PORT_DIR := $(OMV_MOD_DIR)/../ports/$(PORT)
 OMV_LIB_IMLIB_DIR := $(OMV_MOD_DIR)/../lib/imlib
 OMV_COMMON_DIR := $(OMV_MOD_DIR)/../common
 
+# Define TOP_DIR for common.mk and imlib.mk (they use $(TOP_DIR)/common and $(TOP_DIR)/lib/imlib)
+# OMV_MOD_DIR is the modules directory, so TOP_DIR is one level up
+TOP_DIR := $(OMV_MOD_DIR)/..
+
 SRC_USERMOD += $(wildcard $(OMV_PORT_DIR)/*.c)
 
 # Include common and imlib file lists
@@ -126,6 +130,6 @@ endif
 # Unix port: Suppress warnings that MicroPython's build system enables
 ifeq ($(PORT), unix)
 $(BUILD)/modules/%.o: override CFLAGS += -Wno-float-conversion -Wno-double-promotion -Wno-type-limits -Wno-absolute-value
-$(BUILD)/modules/../lib/imlib/%.o: override CFLAGS += -Wno-float-conversion -Wno-double-promotion -Wno-type-limits -Wno-absolute-value -Wno-old-style-declaration -Wno-shift-negative-value -Wno-implicit-fallthrough
+$(BUILD)/modules/../lib/imlib/%.o: override CFLAGS += -Wno-float-conversion -Wno-double-promotion -Wno-type-limits -Wno-absolute-value -Wno-old-style-declaration -Wno-shift-negative-value -Wno-implicit-fallthrough -Wno-unused-but-set-parameter -Wno-empty-body -Wno-pointer-to-int-cast
 endif
 
