@@ -33,6 +33,7 @@ CFLAGS += -std=gnu11 \
           -Wfloat-conversion \
           -Wno-unused-parameter \
           -Wno-missing-field-initializers \
+          -I$(OMV_BOARD_CONFIG_DIR) \
           -I$(OMV_PORT_DIR) \
           -I$(OMV_PORT_DIR)/unix_compat \
           -DUNIX
