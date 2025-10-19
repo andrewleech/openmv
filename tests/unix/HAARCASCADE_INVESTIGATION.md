@@ -25,9 +25,11 @@
 - ❌ Detection returns 0 objects (expected 2 faces)
 
 ### Hardware Test (OPENMV4)
-- ✅ Cascade uploads and loads successfully
+- ✅ Cascade uploads and loads successfully (via base64 over serial to SD card)
 - ❌ Cannot test detection - firmware lacks ImageIO support
-- ℹ️  Hardware firmware would need IMLIB_ENABLE_IMAGE_IO=1 to test with PGM files
+- ℹ️  Hardware firmware returns `OSError: [Errno 19] ENODEV` when attempting to load PGM with `image.Image()` or `image.ImageIO()`
+- ℹ️  Board config has `IMLIB_ENABLE_IMAGE_IO` enabled, but existing firmware on device was built without it
+- ❌ Firmware rebuild blocked - build fails with ARM/Thumb relocation errors (pre-existing issue on master branch)
 
 ## Technical Details
 
@@ -74,6 +76,20 @@ Further investigation needed with:
 2. `f0ea5e8f` - Document buffer overflow issue
 3. `480e0b1a` - Fix buffer overflow with correct row allocation
 
+## Build Environment Issue
+
+**OPENMV4 firmware build fails** with ARM/Thumb relocation errors:
+```
+undefined reference to `mp_obj_new_tuple'
+Unknown destination type (ARM/Thumb) in .../sdcard.o
+dangerous relocation: unsupported relocation
+```
+
+- Verified on both `unix-port-support` and `master` branches
+- Appears to be MicroPython submodule or toolchain compatibility issue
+- Existing firmware on connected OPENMV4 was built in different environment
+- Prevents testing haarcascade on hardware after rebuilding with ImageIO
+
 ## Recommendations
 
 1. **For Unix port haarcascade detection issue:**
@@ -82,7 +98,8 @@ Further investigation needed with:
    - Verify fb_alloc behavior on Unix matches embedded
 
 2. **For hardware testing:**
-   - Rebuild OPENMV4 firmware with `IMLIB_ENABLE_IMAGE_IO=1`
+   - Resolve build environment issue (submodules, toolchain, linker flags)
+   - Rebuild OPENMV4 firmware with existing `IMLIB_ENABLE_IMAGE_IO=1` config
    - Run identical test on hardware to establish baseline
 
 3. **General:**
