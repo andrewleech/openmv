@@ -72,7 +72,11 @@
 #define IMLIB_ENABLE_JPEG                      (1)
 #define IMLIB_ENABLE_PNG                       (1)
 
-// Disable GPL code by default (can be enabled if needed)
-#define OMV_NO_GPL                             (0)
+// Enable GPL code (AGAST corner detector for ORB keypoints)
+// OMV_NO_GPL is intentionally NOT defined to allow GPL code
+// #define OMV_NO_GPL                             (0)
+
+// Enable AGAST corner detector for ORB keypoints (GPL code)
+#define IMLIB_ENABLE_AGAST
 
 #endif // __IMLIB_CONFIG_H__
