@@ -118,15 +118,13 @@ array_t *imlib_detect_objects(image_t *image, cascade_t *cascade, rectangle_t *r
     }
 
     // Allocate integral images
-    // FIXME: Haar cascade rectangles can extend beyond window (frontalface.cascade has y+h up to 40
-    // for 24x24 window), but moving window design allocates only window.h+1 rows. This causes buffer
-    // overflow on Unix port. Embedded systems may not crash due to lenient memory protection or
-    // different memory layout. Proper fix requires either:
-    // 1) Validating cascade files don't have over-extended rectangles, or
-    // 2) Redesigning integral image allocation to handle arbitrary rectangle sizes
-    // For now, keep original allocation to match embedded behavior.
-    imlib_integral_mw_alloc(&sum, roi->w, cascade->window.h + 1);
-    imlib_integral_mw_alloc(&ssq, roi->w, cascade->window.h + 1);
+    // NOTE: Cascade rectangles can extend beyond window (frontalface.cascade has y+h up to 40
+    // for 24x24 window). Standard moving window allocates window.h+1 rows, but this causes
+    // buffer overflow when rectangles extend beyond. Allocate extra rows to prevent crashes.
+    // The scaling ratio in imlib_integral_mw_scale() correctly maps row indices to source image.
+    int integral_h = cascade->window.h * 2 + 1;
+    imlib_integral_mw_alloc(&sum, roi->w, integral_h);
+    imlib_integral_mw_alloc(&ssq, roi->w, integral_h);
 
     // Iterate over the image pyramid
     for (float factor = 1.0f; ; factor *= cascade->scale_factor) {
