@@ -269,7 +269,9 @@ void file_truncate(file_t *fp) {
     // Truncate file at current position by calling Python truncate() method
     // Check if stream supports truncate (not all VFS streams do)
     mp_obj_t dest[2];
-    mp_load_method_maybe(fp->fp, MP_QSTR_truncate, dest);
+    // Use qstr_from_str for runtime qstr lookup since truncate may not be in qstr pool
+    qstr truncate_qstr = qstr_from_str("truncate");
+    mp_load_method_maybe(fp->fp, truncate_qstr, dest);
     if (dest[0] == MP_OBJ_NULL) {
         // Stream doesn't support truncate - silently skip
         // This is acceptable since truncate is an optimization, not critical
