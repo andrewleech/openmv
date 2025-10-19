@@ -76,19 +76,19 @@ Further investigation needed with:
 2. `f0ea5e8f` - Document buffer overflow issue
 3. `480e0b1a` - Fix buffer overflow with correct row allocation
 
-## Build Environment Issue
+## Build Environment Resolution
 
-**OPENMV4 firmware build fails** with ARM/Thumb relocation errors:
-```
-undefined reference to `mp_obj_new_tuple'
-Unknown destination type (ARM/Thumb) in .../sdcard.o
-dangerous relocation: unsupported relocation
-```
+**Docker Build System Works:**
+- Direct `make` builds fail with ARM/Thumb relocation errors (toolchain issue)
+- Docker-based build system (`docker/Makefile`) builds successfully
+- Firmware binary generated: `docker/build/OPENMV4/bin/openmv.bin` (1.9MB)
+- Build includes ImageIO support as configured in `boards/OPENMV4/imlib_config.h`
 
-- Verified on both `unix-port-support` and `master` branches
-- Appears to be MicroPython submodule or toolchain compatibility issue
-- Existing firmware on connected OPENMV4 was built in different environment
-- Prevents testing haarcascade on hardware after rebuilding with ImageIO
+**Flashing Issue:**
+- `dfu-util` fails with "Device is unable to write memory" error
+- `pydfu.py` has Python 3.12 compatibility issues (`inspect.getargspec` deprecated)
+- DFU device detected correctly (37c5:9204) but firmware upload fails
+- Standard flashing tools not functional with current setup
 
 ## Recommendations
 
@@ -98,9 +98,9 @@ dangerous relocation: unsupported relocation
    - Verify fb_alloc behavior on Unix matches embedded
 
 2. **For hardware testing:**
-   - Resolve build environment issue (submodules, toolchain, linker flags)
-   - Rebuild OPENMV4 firmware with existing `IMLIB_ENABLE_IMAGE_IO=1` config
-   - Run identical test on hardware to establish baseline
+   - ✅ Firmware builds successfully using Docker build system
+   - ❌ DFU flashing fails - need alternative flashing method (OpenMV IDE, probe-rs, or physical bootloader button method)
+   - Once firmware flashed, run identical test on hardware to establish baseline
 
 3. **General:**
    - Consider validating cascade files don't have rectangles extending too far beyond window
