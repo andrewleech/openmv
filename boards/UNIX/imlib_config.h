@@ -52,6 +52,7 @@
 #define IMLIB_ENABLE_FIND_RECTS                (1)
 #define IMLIB_ENABLE_QRCODES                   (1)
 #define IMLIB_ENABLE_APRILTAGS                 (1)
+#define IMLIB_ENABLE_APRILTAGS_TAG36H11        (1)
 #define IMLIB_ENABLE_DATAMATRICES              (1)
 #define IMLIB_ENABLE_BARCODES                  (1)
 #define IMLIB_ENABLE_FIND_DISPLACEMENT         (1)
