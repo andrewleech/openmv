@@ -25,11 +25,12 @@
 - ❌ Detection returns 0 objects (expected 2 faces)
 
 ### Hardware Test (OPENMV4)
-- ✅ Cascade uploads and loads successfully (via base64 over serial to SD card)
-- ❌ Cannot test detection - firmware lacks ImageIO support
-- ℹ️  Hardware firmware returns `OSError: [Errno 19] ENODEV` when attempting to load PGM with `image.Image()` or `image.ImageIO()`
-- ℹ️  Board config has `IMLIB_ENABLE_IMAGE_IO` enabled, but existing firmware on device was built without it
-- ❌ Firmware rebuild blocked - build fails with ARM/Thumb relocation errors (pre-existing issue on master branch)
+- ✅ Firmware rebuilt successfully using Docker build system
+- ✅ Firmware flashed via probe-rs with CherryDAP debug probe
+- ✅ Cascade loads successfully from /sdcard
+- ✅ Image loads successfully (300x200) from /sdcard
+- ❌ **Detection returns 0 objects (identical to Unix port behavior)**
+- ℹ️  Initial path confusion: `/sd` returns ENODEV, correct path is `/sdcard`
 
 ## Technical Details
 
@@ -49,26 +50,36 @@ sum->y_ratio = (roi->h << 16) / h  // h is scaled height, not integral height
 ```
 Therefore allocating more rows is valid as long as they stay within source image bounds.
 
-### Detection Issue (0 objects on Unix)
-Unknown root cause. Possibilities:
-1. Platform-specific floating point differences
-2. Memory layout affecting algorithm behavior
-3. Bug in detection algorithm that manifests on 64-bit
-4. Cascade file compatibility issue
+### Detection Issue (0 objects on Both Platforms)
+**Critical Finding:** Both Unix port and OPENMV4 hardware return 0 detections with identical test conditions.
 
-Further investigation needed with:
-- Detailed logging of intermediate values
-- Comparison with known-working hardware results
-- Testing with different cascade files
-- Verification of integral image computation
+This rules out platform-specific issues:
+- ❌ Not a 64-bit vs 32-bit pointer issue
+- ❌ Not a floating point precision difference
+- ❌ Not a Unix-specific memory layout issue
+- ✅ Likely a fundamental bug in haarcascade detection algorithm
+
+The bug affects both architectures (x86_64 and ARM Cortex-M7), suggesting:
+1. Logic error in cascade evaluation algorithm
+2. Incorrect threshold or scaling parameter handling
+3. Bug in integral image computation that affects all platforms
+4. Issue with how rectangles extending beyond window bounds are handled
+
+Further investigation needed:
+- Add debug logging to track cascade stage evaluations
+- Verify integral image values match expected computation
+- Test with different threshold/scale parameters
+- Compare with OpenCV's Viola-Jones implementation
+- Verify rectangle coordinate calculations when features extend beyond window
 
 ## Test Results
 
 **Overall Unix Port:** 9/20 tests passing (45%)
 
 **Haarcascade specific:**
-- Unix: FAILED (no crash, but 0 detections)
-- Hardware: Cannot test (ImageIO not compiled)
+- Unix port: FAILED (no crash, 0 detections, expected 2 faces)
+- OPENMV4 hardware: FAILED (no crash, 0 detections, expected 2 faces)
+- **Both platforms exhibit identical failure mode**
 
 ## Commits
 
@@ -84,24 +95,35 @@ Further investigation needed with:
 - Firmware binary generated: `docker/build/OPENMV4/bin/openmv.bin` (1.9MB)
 - Build includes ImageIO support as configured in `boards/OPENMV4/imlib_config.h`
 
-**Flashing Issue:**
+**Firmware Flashing (RESOLVED):**
 - `dfu-util` fails with "Device is unable to write memory" error
 - `pydfu.py` has Python 3.12 compatibility issues (`inspect.getargspec` deprecated)
-- DFU device detected correctly (37c5:9204) but firmware upload fails
-- Standard flashing tools not functional with current setup
+- ✅ **Solution:** Used probe-rs with CherryDAP debug probe
+  - `probe-rs download --chip STM32H743VITx --probe 0d28:0204 firmware.elf`
+  - Flashing completed in ~65 seconds
+  - Device boots successfully with ImageIO support enabled
 
 ## Recommendations
 
-1. **For Unix port haarcascade detection issue:**
-   - Add debug logging to compare Unix vs embedded integral image values
-   - Test with simpler cascade files
-   - Verify fb_alloc behavior on Unix matches embedded
+1. **For haarcascade detection issue (affects both Unix and hardware):**
+   - Add detailed debug logging to track:
+     - Integral image computation values
+     - Stage-by-stage cascade evaluation
+     - Rectangle feature calculations
+     - Threshold comparisons at each stage
+   - Test with alternative cascade files (eye.cascade, smile.cascade)
+   - Compare implementation against OpenCV's Viola-Jones reference
+   - Verify scaling and windowing logic when features extend beyond window bounds
+   - Check if issue exists in older firmware versions (regression test)
 
-2. **For hardware testing:**
+2. **Hardware testing infrastructure (COMPLETED):**
    - ✅ Firmware builds successfully using Docker build system
-   - ❌ DFU flashing fails - need alternative flashing method (OpenMV IDE, probe-rs, or physical bootloader button method)
-   - Once firmware flashed, run identical test on hardware to establish baseline
+   - ✅ probe-rs flashing works with CherryDAP debug probe
+   - ✅ Identical test runs successfully on both Unix and OPENMV4
+   - ℹ️  Note: SD card mount point is `/sdcard` not `/sd`
 
 3. **General:**
    - Consider validating cascade files don't have rectangles extending too far beyond window
    - Document integral image buffer requirements in code
+   - Add runtime validation for cascade file format
+   - Document probe-rs flashing procedure for OPENMV4

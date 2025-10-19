@@ -59,9 +59,8 @@ try:
         print("TEST_FAILED: unittest() returned False")
         sys.exit(1)
 except Exception as e:
-    import traceback
     print(f"TEST_EXCEPTION: {{type(e).__name__}}: {{e}}")
-    traceback.print_exc()
+    sys.print_exception(e)
     sys.exit(1)
 """
 
