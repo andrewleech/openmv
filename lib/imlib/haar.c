@@ -118,8 +118,11 @@ array_t *imlib_detect_objects(image_t *image, cascade_t *cascade, rectangle_t *r
     }
 
     // Allocate integral images
-    imlib_integral_mw_alloc(&sum, roi->w, cascade->window.h + 1);
-    imlib_integral_mw_alloc(&ssq, roi->w, cascade->window.h + 1);
+    // NOTE: Allocating 2x window height to account for rectangles that may extend beyond window.
+    // Cascade rectangles can have y+h > window.h due to how Haar features are defined.
+    int integral_h = cascade->window.h * 2 + 1;
+    imlib_integral_mw_alloc(&sum, roi->w, integral_h);
+    imlib_integral_mw_alloc(&ssq, roi->w, integral_h);
 
     // Iterate over the image pyramid
     for (float factor = 1.0f; ; factor *= cascade->scale_factor) {
@@ -180,12 +183,6 @@ array_t *imlib_detect_objects(image_t *image, cascade_t *cascade, rectangle_t *r
 }
 
 #if MICROPY_VFS
-static void *cascade_buffer_read(uint8_t **buf, size_t size) {
-    uint8_t *buf8 = *buf;
-    *buf += size;
-    return buf8;
-}
-
 int imlib_load_cascade_from_file(cascade_t *cascade, const char *path) {
     int error = 0;
     mp_obj_t args[2] = {
@@ -205,11 +202,14 @@ int imlib_load_cascade_from_file(cascade_t *cascade, const char *path) {
         cascade->window.h = ((uint32_t *) bufinfo.buf)[1];
         cascade->n_stages = ((uint32_t *) bufinfo.buf)[2];
 
-        // Set the number features in each stages
-        cascade->stages_array = cascade_buffer_read(&buf, cascade->n_stages);
+        // Allocate and copy stages array
+        cascade->stages_array = m_malloc(sizeof(int8_t) * cascade->n_stages);
+        memcpy(cascade->stages_array, buf, cascade->n_stages);
+        buf += cascade->n_stages;
+
         // Skip alignment
-        if ((uint32_t) buf % 4) {
-            buf += 4 - ((uint32_t) buf % 4);
+        if ((uintptr_t) buf % 4) {
+            buf += 4 - ((uintptr_t) buf % 4);
         }
 
         // Sum the number of features in each stages
@@ -217,21 +217,39 @@ int imlib_load_cascade_from_file(cascade_t *cascade, const char *path) {
             cascade->n_features += cascade->stages_array[i];
         }
 
-        // Set features thresh array, alpha1, alpha 2,rects weights and rects
-        cascade->stages_thresh_array = cascade_buffer_read(&buf, sizeof(int16_t) * cascade->n_stages);
-        cascade->tree_thresh_array = cascade_buffer_read(&buf, sizeof(int16_t) * cascade->n_features);
-        cascade->alpha1_array = cascade_buffer_read(&buf, sizeof(int16_t) * cascade->n_features);
-        cascade->alpha2_array = cascade_buffer_read(&buf, sizeof(int16_t) * cascade->n_features);
-        cascade->num_rectangles_array = cascade_buffer_read(&buf, sizeof(int8_t) * cascade->n_features);
+        // Allocate and copy features thresh array, alpha1, alpha2, rects weights and rects
+        cascade->stages_thresh_array = m_malloc(sizeof(int16_t) * cascade->n_stages);
+        memcpy(cascade->stages_thresh_array, buf, sizeof(int16_t) * cascade->n_stages);
+        buf += sizeof(int16_t) * cascade->n_stages;
+
+        cascade->tree_thresh_array = m_malloc(sizeof(int16_t) * cascade->n_features);
+        memcpy(cascade->tree_thresh_array, buf, sizeof(int16_t) * cascade->n_features);
+        buf += sizeof(int16_t) * cascade->n_features;
+
+        cascade->alpha1_array = m_malloc(sizeof(int16_t) * cascade->n_features);
+        memcpy(cascade->alpha1_array, buf, sizeof(int16_t) * cascade->n_features);
+        buf += sizeof(int16_t) * cascade->n_features;
+
+        cascade->alpha2_array = m_malloc(sizeof(int16_t) * cascade->n_features);
+        memcpy(cascade->alpha2_array, buf, sizeof(int16_t) * cascade->n_features);
+        buf += sizeof(int16_t) * cascade->n_features;
+
+        cascade->num_rectangles_array = m_malloc(sizeof(int8_t) * cascade->n_features);
+        memcpy(cascade->num_rectangles_array, buf, cascade->n_features);
+        buf += cascade->n_features;
 
         // Sum the number of rectangles in all features
         for (size_t i = 0; i < cascade->n_features; i++) {
             cascade->n_rectangles += cascade->num_rectangles_array[i];
         }
 
-        // Set rectangles weights and rectangles (number of rectangles * 4 points)
-        cascade->weights_array = cascade_buffer_read(&buf, cascade->n_rectangles);
-        cascade->rectangles_array = cascade_buffer_read(&buf, cascade->n_rectangles * 4);
+        // Allocate and copy rectangles weights and rectangles (number of rectangles * 4 points)
+        cascade->weights_array = m_malloc(cascade->n_rectangles);
+        memcpy(cascade->weights_array, buf, cascade->n_rectangles);
+        buf += cascade->n_rectangles;
+
+        cascade->rectangles_array = m_malloc(cascade->n_rectangles * 4);
+        memcpy(cascade->rectangles_array, buf, cascade->n_rectangles * 4);
     } else {
         // Read detection window size.
         mp_stream_read_exactly(file, &cascade->window, sizeof(cascade->window), &error);
