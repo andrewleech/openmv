@@ -56,7 +56,7 @@
 #define IMLIB_ENABLE_DATAMATRICES              (1)
 #define IMLIB_ENABLE_BARCODES                  (1)
 #define IMLIB_ENABLE_FIND_DISPLACEMENT         (1)
-#define IMLIB_ENABLE_TEMPLATE                  (1)
+#define IMLIB_FIND_TEMPLATE
 #define IMLIB_ENABLE_FEATURES                  (1)
 #define IMLIB_ENABLE_EYE                       (1)
 #define IMLIB_ENABLE_FIND_LBP                  (1)
