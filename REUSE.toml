@@ -1,0 +1,1003 @@
+version = 1
+
+# ---- core ----
+# ---- OpenMV non-commercial (clause-3 header) ----
+[[annotations]]
+path = [
+  "boot/Makefile",
+  "boot/include/*",
+  "boot/src/common/*",
+  "boot/src/ports/alif/*",
+  "boot/src/ports/stm32/stm32_*",
+  "boot/src/ports/stm32/tusb_config.h",
+  "common/omv_csi.c",
+  "common/omv_csi.h",
+  "drivers/sensors/boson.c",
+  "drivers/sensors/pag7936.c",
+  "drivers/sensors/ps5520.c",
+  "lib/tflm/tflm_backend.cc",
+  "modules/py_csi_ng.c",
+  "modules/py_ml.c",
+  "modules/py_ml.h",
+  "ports/alif/alif.ld.S",
+  "ports/alif/alif.mk",
+  "ports/alif/alif_cfg.json",
+  "ports/alif/alif_dma.*",
+  "ports/alif/alif_hal.*",
+  "ports/alif/alif_npu.c",
+  "ports/alif/alif_pins.h",
+  "ports/alif/main.c",
+  "ports/alif/modules/py_audio.*",
+  "ports/alif/mp_config.h",
+  "ports/alif/omv_csi.c",
+  "ports/alif/omv_gpio.c",
+  "ports/alif/omv_gpu.c",
+  "ports/alif/omv_i2c.c",
+  "ports/alif/omv_spi.c",
+  "ports/alif/port_config.*",
+  "ports/mimxrt/omv_csi.c",
+  "ports/qemu/main.c",
+  "ports/qemu/mp_config.h",
+  "ports/qemu/omv_csi.c",
+  "ports/qemu/omv_gpio.c",
+  "ports/qemu/omv_i2c.c",
+  "ports/qemu/port_config.h",
+  "ports/stm32/omv_csi.c",
+  "ports/stm32/stm_isp.*",
+  "ports/stm32/stm_xspi.*",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "LicenseRef-OpenMV-NonCommercial"
+# Evidence: clause-3 "personal benefit and not for any commercial purpose" header in each file;
+# ports/alif/LICENSE holds the same text and covers alif_cfg.json (JSON cannot carry a header).
+
+# ---- OpenMV MIT with in-file header (Ibrahim Abdelkader, Kwabena Agyeman) ----
+[[annotations]]
+path = ["boot/src/ports/stm32/stm32.ld.S", "lib/mimxrt/mimxrt.mk"]
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "2013-2021 Ibrahim Abdelkader <iabdalkader@openmv.io>",
+  "2013-2021 Kwabena W. Agyeman <kwagyeman@openmv.io>",
+]
+SPDX-License-Identifier = "MIT"
+# Evidence: header "licensed under the MIT license, see the file LICENSE".
+
+[[annotations]]
+path = "lib/mimxrt/MIMXRT1062/drivers/mimxrt_pads.*"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "2023 Ibrahim Abdelkader <iabdalkader@openmv.io>",
+  "2023 Kwabena W. Agyeman <kwagyeman@openmv.io>",
+]
+SPDX-License-Identifier = "MIT"
+# Evidence: header "licensed under the MIT license, see the file LICENSE".
+
+# ---- OpenMV files with no licence text: MIT per README ----
+[[annotations]]
+path = [
+  "common/check_toolchain.mk",
+  "drivers/sensors/sensor_config.h",
+  "ports/stm32/stm_pwm.c",
+  "lib/imlib/lab_tab.c",
+  "lib/imlib/rainbow_tab.c",
+  "lib/imlib/sincos_tab.c",
+  "lib/imlib/xyz_tab.c",
+  "lib/haar/haarcascade_minions.xml",
+  "lib/models/fomo_face_detection.*",
+  "lib/models/yolo_lc_192.*",
+  "lib/models/force_int_quant.tflite",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+# Evidence: no header; README "most of the code is MIT". Generated tables. Models and cascade
+# provenance is not recorded in the repo (see report).
+
+[[annotations]]
+path = "drivers/pixart/include/pixspi.h"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "2021 Lake Fu <lake_fu@pixart.com>",
+  "OpenMV, LLC",
+]
+SPDX-License-Identifier = "MIT"
+# Evidence: no header; sibling drivers/pixart/src/pixspi.c is MIT with these two holders.
+
+# ---- MicroPython-derived, MIT header without SPDX tag ----
+[[annotations]]
+path = "common/pendsv.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "2013, 2024 Damien P. George"
+SPDX-License-Identifier = "MIT"
+# Evidence: MIT text in header.
+
+[[annotations]]
+path = "ports/nrf/main.c"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "2013, 2014 Damien P. George",
+  "2015 Glenn Ruben Bakke",
+]
+SPDX-License-Identifier = "MIT"
+# Evidence: MIT text in header.
+
+[[annotations]]
+path = "ports/rp2/main.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "2020-2021 Damien P. George"
+SPDX-License-Identifier = "MIT"
+# Evidence: MIT text in header.
+
+[[annotations]]
+path = "ports/qemu/qemu.ld.S"
+precedence = "closest"
+SPDX-FileCopyrightText = "2018 Damien P. George"
+SPDX-License-Identifier = "MIT"
+# Evidence: "The MIT License (MIT)" in header.
+
+# ---- TLSF ----
+[[annotations]]
+path = "common/tlsf.*"
+precedence = "closest"
+SPDX-FileCopyrightText = "2006-2016 Matthew Conte"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: 3-clause BSD header in tlsf.c and tlsf.h ("no GPL restrictions apply" is only a note).
+
+# ---- STM32Cube.AI wrapper ----
+[[annotations]]
+path = "cubeai/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2019 STMicroelectronics"
+SPDX-License-Identifier = "MIT"
+# Evidence: cubeai/LICENSE (MIT), headers, cubeai/README.md. cubeai/AI holds only SLA licence text (ignored by reuse).
+
+# ---- ST CEC driver ----
+[[annotations]]
+path = "drivers/display/**/cec.*"
+precedence = "closest"
+SPDX-FileCopyrightText = "2011 STMicroelectronics"
+SPDX-License-Identifier = "LicenseRef-ST-SoftwarePackage"
+# Evidence: drivers/display/LICENSE (ST software package agreement); headers say STMicroelectronics 2011.
+
+# ---- ST PDM2PCM ----
+[[annotations]]
+path = ["lib/libpdm/pdm2pcm_glo.h", "lib/libpdm/libPDMFilter_CM7_GCC_wc32.a"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2011 STMicroelectronics"
+SPDX-License-Identifier = "LicenseRef-ST-MCD-ImageV2"
+# Evidence: pdm2pcm_glo.h header "MCD-ST Image SW License Agreement V2"; the .a is its binary library.
+
+# ---- OpenPDM ----
+[[annotations]]
+path = "lib/openpdm/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2018 STMicroelectronics"
+SPDX-License-Identifier = "Apache-2.0"
+# Evidence: Apache-2.0 header in OpenPDMFilter.c/.h; pdm_lut.c is its precomputed table (no header).
+
+# ---- Arduino PDM PIO ----
+[[annotations]]
+path = "ports/rp2/pdm.pio"
+precedence = "closest"
+SPDX-FileCopyrightText = "2019 Arduino LLC"
+SPDX-License-Identifier = "LGPL-2.1-or-later"
+# Evidence: header "GNU Lesser General Public License ... version 2.1 or (at your option) any later version".
+
+# ---- Alif ----
+[[annotations]]
+path = "ports/alif/alif_dave.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "2023 Alif Semiconductor"
+SPDX-License-Identifier = "LicenseRef-Alif-SLA"
+# Evidence: header cites the Alif Semiconductor Software License Agreement.
+
+# ---- imlib third party ----
+[[annotations]]
+path = "lib/imlib/agast.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "2010 Elmar Mair"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+# Evidence: header "version 3 ... or (at your option) any later version".
+
+[[annotations]]
+path = "lib/imlib/zbar.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "2007-2010 Jeff Brown <spadix@users.sourceforge.net>"
+SPDX-License-Identifier = "LGPL-2.1-or-later"
+# Evidence: header "GNU Lesser Public License ... version 2.1 ... or any later version".
+
+[[annotations]]
+path = "lib/imlib/clahe.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "Karel Zuiderveld"
+SPDX-License-Identifier = "LicenseRef-GraphicsGems"
+# Evidence: header cites Graphics Gems IV; licence is the Graphics Gems EULA.
+
+[[annotations]]
+path = "lib/imlib/dmtx.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "2005-2016 Mike Laughton, Vadim A. Misbakh-Soloviov and others"
+SPDX-License-Identifier = "BSD-2-Clause-Views"
+# Evidence: 2-clause BSD plus "views and conclusions" paragraph in header; "alternate terms" need written permission.
+
+[[annotations]]
+path = "lib/imlib/lodepng.*"
+precedence = "closest"
+SPDX-FileCopyrightText = "2005-2022 Lode Vandevenne"
+SPDX-License-Identifier = "Zlib"
+# Evidence: zlib-style header in lodepng.c and lodepng.h.
+
+[[annotations]]
+path = "lib/imlib/qsort.c"
+precedence = "closest"
+SPDX-FileCopyrightText = "1992, 1993 The Regents of the University of California"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: UCB 3-clause BSD header.
+
+# ---- Haar cascades ----
+[[annotations]]
+path = ["lib/haar/haarcascade_frontalface.xml", "lib/haar/haarcascade_profileface.xml", "lib/haar/haarcascade_eye.xml"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2000 Intel Corporation"
+SPDX-License-Identifier = "LicenseRef-Intel-OpenCV"
+# Evidence: Intel License Agreement in frontalface and profileface headers; eye has no header here, upstream OpenCV file carries it.
+
+[[annotations]]
+path = "lib/haar/haarcascade_frontalcatface.xml"
+precedence = "closest"
+SPDX-FileCopyrightText = "2014-2016 Joseph Howse (Nummist Media Corporation Limited)"
+SPDX-License-Identifier = "LicenseRef-OpenCV-Contributors"
+# Evidence: Contributors License Agreement in header.
+
+[[annotations]]
+path = "lib/haar/haarcascade_smile.xml"
+precedence = "closest"
+SPDX-FileCopyrightText = "2011 Modesto Castrillon-Santana (IUSIANI, Universidad de Las Palmas de Gran Canaria)"
+SPDX-License-Identifier = "LicenseRef-OpenCV-Contributors"
+# Evidence: no header here; upstream OpenCV file carries this Contributors License Agreement (same text as catface).
+
+# ---- ML models ----
+[[annotations]]
+path = [
+  "lib/models/audio_preprocessor.tflite",
+  "lib/models/micro_speech.*",
+  "lib/models/person_detect.*",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "The TensorFlow Authors"
+SPDX-License-Identifier = "Apache-2.0"
+# INFERENCE: no licence text in repo; TensorFlow Lite Micro example models.
+
+[[annotations]]
+path = [
+  "lib/models/blazeface_front_128.tflite",
+  "lib/models/face_landmarks_192.tflite",
+  "lib/models/palm_detection_full_192.tflite",
+  "lib/models/hand_landmarks_full_224.tflite",
+  "lib/models/movenet_singlepose_192.tflite",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Google LLC"
+SPDX-License-Identifier = "Apache-2.0"
+# INFERENCE: no licence text in repo; MediaPipe / TF Hub model names.
+
+[[annotations]]
+path = "lib/models/yolov8n_192.*"
+precedence = "closest"
+SPDX-FileCopyrightText = "Ultralytics"
+SPDX-License-Identifier = "AGPL-3.0-only"
+# INFERENCE: no licence text in repo; YOLOv8 is released by Ultralytics under AGPL-3.0.
+
+# ---- vendorlibs ----
+# ST HAL for STM32F4/F7/H7 and the matching CMSIS device files. File headers say
+# "licensed by ST under BSD 3-Clause license" or carry the full ST BSD-3-Clause text.
+[[annotations]]
+path = [
+  "lib/stm32/f4/**",
+  "lib/stm32/f7/**",
+  "lib/stm32/h7/**",
+  "lib/cmsis/include/st/*stm32f*.h",
+  "lib/cmsis/include/st/*stm32h*.h",
+  "lib/cmsis/src/st/startup_stm32f*.s",
+  "lib/cmsis/src/st/startup_stm32h*.s",
+]
+SPDX-FileCopyrightText = "STMicroelectronics"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# ST HAL for STM32N6. Headers point at a LICENSE file that is not in the tree. The
+# upstream STMicroelectronics/stm32n6xx-hal-driver LICENSE.md declares BSD-3-Clause.
+[[annotations]]
+path = "lib/stm32/n6/**"
+SPDX-FileCopyrightText = "STMicroelectronics"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# ST CMSIS device files for STM32N6. Headers point at the LICENSE file of the component,
+# which for lib/cmsis is LICENSE.txt (Apache-2.0). Upstream cmsis-device-n6 is Apache-2.0 too.
+[[annotations]]
+path = [
+  "lib/cmsis/include/st/*stm32n6*.h",
+  "lib/cmsis/src/st/startup_stm32n6*.s",
+]
+SPDX-FileCopyrightText = "STMicroelectronics"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Nordic nrfx drivers and nRF MDK headers carry the Nordic BSD-3-Clause text.
+# lib/nrfx/LICENSE is the same text. README, CHANGELOG and .gitignore ship in the nrfx package.
+[[annotations]]
+path = [
+  "lib/nrfx/include/**",
+  "lib/nrfx/src/**",
+  "lib/nrfx/README.md",
+  "lib/nrfx/CHANGELOG.md",
+  "lib/nrfx/.gitignore",
+  "lib/cmsis/include/nrf/**",
+]
+SPDX-FileCopyrightText = "Nordic Semiconductor ASA"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# MicroPython nrf port files with a full MIT header (MicroPython project, Bakke / van Laethem).
+# This block comes after the Nordic block so it wins for nrfx_config.h.
+[[annotations]]
+path = [
+  "lib/nrfx/include/nrfx_config.h",
+  "lib/cmsis/src/nrf/startup_nrf*.c",
+]
+SPDX-FileCopyrightText = [
+  "Glenn Ruben Bakke",
+  "Ayke van Laethem",
+]
+SPDX-License-Identifier = "MIT"
+
+# OpenMV glue files whose headers say "licensed under the MIT license".
+[[annotations]]
+path = [
+  "lib/cmsis/include/cmsis_extension.h",
+  "lib/nrfx/nrfx.mk",
+  "lib/stm32/stm32.mk",
+]
+SPDX-FileCopyrightText = [
+  "Ibrahim Abdelkader <iabdalkader@openmv.io>",
+  "Kwabena W. Agyeman <kwagyeman@openmv.io>",
+]
+SPDX-License-Identifier = "MIT"
+
+# ST AI runtime (libstai). Headers point at the LICENSE file of the component, which is
+# lib/stai/libstai/LICENSE.md: SLA0044 applies. ATON.h and ATON-idxs.h are generated by ST
+# raSTa with "Copyright STMicroelectronics" and no licence text, so they follow the same file.
+# The ST Edge AI scripts (stm32n6.mpool, neuralart.json) have no header and come from ST tooling.
+[[annotations]]
+path = [
+  "lib/stai/libstai/include/**",
+  "lib/stai/libstai/ll_aton/**",
+  "lib/stai/scripts/**",
+]
+SPDX-FileCopyrightText = "STMicroelectronics"
+SPDX-License-Identifier = "LicenseRef-ST-SLA0044"
+
+# OpenMV ST.AI backend: OpenMV clause-3 (non-commercial) header.
+[[annotations]]
+path = "lib/stai/stai_backend.c"
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "LicenseRef-OpenMV-NonCommercial"
+
+# ---- alif ----
+# lib/alif: Alif Ensemble DFP. lib/alif/License.txt is the pack licence;
+# files carrying the Alif copyright header cite it by name.
+[[annotations]]
+path = [
+  "lib/alif/Alif_CMSIS/**",
+  "lib/alif/components/**",
+  "lib/alif/drivers/**",
+  "lib/alif/libs/**",
+  "lib/alif/ospi_xip/**",
+  "lib/alif/Device/**",
+  "lib/alif/Flash/**",
+  "lib/alif/se_services/source/**",
+  "lib/alif/se_services/include/services_lib_api.h",
+  "lib/alif/se_services/include/services_lib_bare_metal.h",
+  "lib/alif/se_services/include/services_lib_ids.h",
+  "lib/alif/se_services/include/services_lib_protocol.h",
+  "lib/alif/License.txt",
+  "lib/alif/README.md",
+  "lib/alif/AlifSemiconductor.Ensemble.pdsc",
+  "lib/alif/Boards/DevKit-e7/Examples/**",
+  "lib/alif/Boards/DevKit-e7/Templates/Baremetal/*",
+  "lib/alif/Boards/DevKit-e7/Templates/Common/**",
+  "lib/alif/Boards/DevKit-e7/Templates/FreeRTOS/**",
+]
+SPDX-FileCopyrightText = "Alif Semiconductor"
+SPDX-License-Identifier = "LicenseRef-Alif-SLA"
+# Headers: "Alif Semiconductor Software License Agreement" (text in lib/alif/License.txt).
+# Headerless project, linker, flash algorithm and readme files in the same pack
+# have no other evidence, so they follow the pack licence.
+
+# Files with an in-file Apache-2.0 (Arm origin) or GPL-2.0 tag that also carry the Alif
+# header. Aggregate so the Alif terms are declared alongside the in-file tag.
+[[annotations]]
+precedence = "aggregate"
+path = [
+  "lib/alif/Alif_CMSIS/Include/Driver_OSPI.h",
+  "lib/alif/Boards/DevKit-e7/Examples/BareMetal_LED_Blinky/RTE/Device/AE722F80F55D5AS_M55_HE/partition_M55_HE.h",
+  "lib/alif/Boards/DevKit-e7/Examples/BareMetal_LED_Blinky/RTE/Device/AE722F80F55D5AS_M55_HE/partition_M55_HE.h.base@1.0.0",
+  "lib/alif/Boards/DevKit-e7/Examples/BareMetal_LED_Blinky_TCM/RTE/Device/AE722F80F55D5AS_M55_HE/partition_M55_HE.h",
+  "lib/alif/Boards/DevKit-e7/Examples/BareMetal_LED_Blinky_TCM/RTE/Device/AE722F80F55D5AS_M55_HE/partition_M55_HE.h.base@1.0.0",
+  "lib/alif/Boards/DevKit-e7/Examples/Hello_World/RTE/Device/AE722F80F55D5AS_M55_HP/partition_M55_HP.h",
+  "lib/alif/Boards/DevKit-e7/Examples/Hello_World/RTE/Device/AE722F80F55D5AS_M55_HP/partition_M55_HP.h.base@1.0.0",
+  "lib/alif/Device/E7/AE722F80F55D5XX/linker_script/GCC/gcc_M55_HE.ld",
+  "lib/alif/Device/E7/AE722F80F55D5XX/linker_script/GCC/gcc_M55_HE_TCM.ld",
+  "lib/alif/Device/E7/AE722F80F55D5XX/linker_script/GCC/gcc_M55_HP.ld",
+  "lib/alif/Device/E7/AE722F80F55D5XX/linker_script/GCC/gcc_M55_HP_TCM.ld",
+  "lib/alif/Device/common/include/system_M55.h",
+  "lib/alif/Device/common/source/system_M55.c",
+  "lib/alif/Device/core/M55_HE/config/partition_M55_HE.h",
+  "lib/alif/Device/core/M55_HE/include/M55_HE.h",
+  "lib/alif/Device/core/M55_HE/source/startup_M55_HE.c",
+  "lib/alif/Device/core/M55_HP/config/partition_M55_HP.h",
+  "lib/alif/Device/core/M55_HP/include/M55_HP.h",
+  "lib/alif/Device/core/M55_HP/source/startup_M55_HP.c",
+  "lib/alif/libs/retarget_io/compiler/clang/Source/retarget.c",
+]
+SPDX-FileCopyrightText = "Alif Semiconductor"
+SPDX-License-Identifier = "LicenseRef-Alif-SLA"
+# Each file has the Alif SLA header plus an in-file Apache-2.0 tag.
+
+# aipm.h has the Alif SLA header and an in-file "SPDX-License-Identifier: GPL-2.0" tag.
+# GPL-2.0 is a deprecated SPDX id (alias of GPL-2.0-only), so override with the current id.
+[[annotations]]
+precedence = "override"
+path = "lib/alif/se_services/include/aipm.h"
+SPDX-FileCopyrightText = "2023 Alif Semiconductor"
+SPDX-License-Identifier = "GPL-2.0-only AND LicenseRef-Alif-SLA"
+# The file states both: the GPL-2.0 tag and the Alif SLA header.
+
+[[annotations]]
+path = "lib/alif/se_services/include/services_lib_linux.h"
+SPDX-FileCopyrightText = "2022 Alif Group"
+SPDX-License-Identifier = "LicenseRef-Alif-SLA"
+# Header: "COPYRIGHT NOTICE: (c) 2022 Alif Group", no licence text; pack licence applies.
+
+[[annotations]]
+path = "lib/alif/Boards/DevKit-e7/Templates/Baremetal/FatFS/*"
+SPDX-FileCopyrightText = "2019-2022 ChaN"
+SPDX-License-Identifier = "LicenseRef-ChaN-FatFs"
+# FatFs R0.15 by ChaN; licence text in ff.c, ff.h and ffunicode.c headers.
+# diskio.*, ffconf.h and ffsystem.c carry only "(C)ChaN" and are part of the same package.
+
+[[annotations]]
+path = [
+  "lib/alif/Boards/DevKit-e7/Templates/bayer2rgb/bayer.c",
+  "lib/alif/Boards/DevKit-e7/Templates/bayer2rgb/bayer.h",
+  "lib/alif/Boards/DevKit-e7/Templates/Baremetal/Include/bayer.h",
+]
+SPDX-FileCopyrightText = "Damien Douxchamps and Frederic Devernay"
+SPDX-License-Identifier = "LGPL-2.1-or-later"
+# bayer.c header: GNU LGPL version 2.1 or (at your option) any later version (libdc1394).
+# The two bayer.h copies carry no header; they are the libdc1394 interface of bayer.c.
+
+[[annotations]]
+path = "lib/alif/Boards/DevKit-e7/Templates/bayer2rgb/bayer2rgb.c"
+SPDX-FileCopyrightText = "2009 Jeff Thomas"
+SPDX-License-Identifier = "LGPL-2.1-or-later"
+# Header: GNU LGPL version 2.1 or later (bayer2rgb); bayer2rgb/COPYING holds the LGPL-2.1 text.
+
+[[annotations]]
+path = [
+  "lib/alif/Boards/DevKit-e7/Templates/lwip/httpd/fs.c",
+  "lib/alif/Boards/DevKit-e7/Templates/lwip/httpd/httpd.c",
+  "lib/alif/Boards/DevKit-e7/Templates/lwip/httpd/fsdata.c",
+  "lib/alif/Boards/DevKit-e7/Templates/lwip/httpd/httpd_structs.h",
+]
+SPDX-FileCopyrightText = "2001-2003 Swedish Institute of Computer Science"
+SPDX-License-Identifier = "BSD-3-Clause"
+# fs.c and httpd.c headers: SICS three clause BSD (lwIP). fsdata.c (lwIP makefsdata output,
+# "Server: lwIP/2.0.3d") and httpd_structs.h have no header; same lwIP httpd source.
+
+[[annotations]]
+path = "lib/alif/Boards/DevKit-e7/Templates/lwip/httpd/main.c"
+SPDX-FileCopyrightText = "2022 ALIF SEMICONDUCTOR"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Header: three clause BSD naming ALIF SEMICONDUCTOR.
+
+[[annotations]]
+path = "lib/alif/alif.mk"
+SPDX-FileCopyrightText = [
+  "2013-2021 Ibrahim Abdelkader <iabdalkader@openmv.io>",
+  "2013-2021 Kwabena W. Agyeman <kwagyeman@openmv.io>",
+]
+SPDX-License-Identifier = "MIT"
+# Header: "This work is licensed under the MIT license".
+
+[[annotations]]
+path = [
+  "boards/OPENMV_AE3/board_config.h",
+  "boards/OPENMV_AE3/boot_config.h",
+  "boards/OPENMV_AE3/imlib_config.h",
+  "boards/OPENMV_AE3/ulab_config.h",
+]
+SPDX-FileCopyrightText = "2023-2024 OpenMV, LLC"
+SPDX-License-Identifier = "LicenseRef-OpenMV-NonCommercial"
+# Headers carry clause 3: personal benefit only, not for any commercial purpose.
+
+[[annotations]]
+path = [
+  "boards/OPENMV_AE3/board_config.mk",
+  "boards/OPENMV_AE3/manifest.py",
+  "boards/OPENMV_AE3/pins_config.h",
+  "boards/OPENMV_AE3/romfs_config.json",
+  "scripts/libraries/alif/**",
+]
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+# OpenMV files without a header; README: most of the code is MIT.
+
+# ---- drivers ----
+# drivers/boson: FLIR Boson SDK
+[[annotations]]
+path = "drivers/boson/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (C) 2015-2018 FLIR Systems"
+SPDX-License-Identifier = "LicenseRef-FLIR-Boson-SDK"
+# Evidence: drivers/boson/LICENSE.pdf (FLIR Boson SDK licence agreement); headers say "Copyright FLIR Systems. All rights reserved."
+
+# OpenMV-written glue inside the Boson tree carries the OpenMV clause-3 header.
+[[annotations]]
+path = [
+  "drivers/boson/include/sc16is741a.h",
+  "drivers/boson/src/serialPortAdapter.c",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (C) 2023-2024 OpenMV, LLC."
+SPDX-License-Identifier = "LicenseRef-OpenMV-NonCommercial"
+# Evidence: file headers (OpenMV clause 3, personal benefit only).
+
+# drivers/cyw4343: CYW4343 WiFi/BT firmware
+[[annotations]]
+path = "drivers/cyw4343/firmware/*.bin"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "Copyright Broadcom Corporation",
+  "Copyright Cypress Semiconductor Corporation (an Infineon Technologies company)",
+]
+SPDX-License-Identifier = "LicenseRef-Infineon-PermissiveBinary-1.0"
+# Evidence: none in repo. Blobs carry Broadcom strings; vendor distribution of CYW43xx firmware is under the Permissive Binary License (inferred, see report).
+
+[[annotations]]
+path = "drivers/cyw4343/firmware/*.h"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (C) 2013-2025 OpenMV, LLC."
+SPDX-License-Identifier = "MIT"
+# Evidence: OpenMV-written length/address definitions with no vendor text; README says most code is MIT.
+
+# drivers/dave2d: D/AVE 2D driver (Renesas / TES)
+[[annotations]]
+path = [
+  "drivers/dave2d/src/**",
+  "drivers/dave2d/include/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2011 Renesas Electronics (Europe) GmbH"
+SPDX-License-Identifier = "LicenseRef-Alif-SLA"
+# Evidence: drivers/dave2d/LICENSE is the Alif Software License Agreement; src/dave_64bitoperation.c names Renesas as owner.
+
+# Generated Natural Docs output: HTML pages, search data and images.
+[[annotations]]
+path = [
+  "drivers/dave2d/docs/index.html",
+  "drivers/dave2d/docs/files/**",
+  "drivers/dave2d/docs/index/**",
+  "drivers/dave2d/docs/search/**",
+  "drivers/dave2d/docs/javascript/searchdata.js",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2016 TES Electronic Solutions"
+SPDX-License-Identifier = "LicenseRef-Alif-SLA"
+# Evidence: page footers "(c) 2016 by TES Electronic Solutions"; documents the driver covered by drivers/dave2d/LICENSE. Natural Docs says generated output is not covered by its own licence.
+
+# Natural Docs viewer code shipped inside the generated docs.
+[[annotations]]
+path = [
+  "drivers/dave2d/docs/javascript/main.js",
+  "drivers/dave2d/docs/styles/main.css",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2003-2010 Greg Valure"
+SPDX-License-Identifier = "AGPL-3.0-only"
+# Evidence: file headers ("licensed under version 3 of the GNU Affero General Public License").
+
+[[annotations]]
+path = "drivers/dave2d/docs/javascript/prettify.js"
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "Copyright (c) 2003-2010 Greg Valure",
+  "Copyright (C) 2006 Google Inc.",
+]
+SPDX-License-Identifier = "AGPL-3.0-only OR Apache-2.0"
+# Evidence: header ("licensed under AGPL v3 ... may also be obtained separately under version 2.0 of the Apache License").
+
+# drivers/genx320: Prophesee
+[[annotations]]
+path = "drivers/genx320/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) Prophesee S.A."
+SPDX-License-Identifier = "Apache-2.0"
+# Evidence: file headers and drivers/genx320/LICENSE (Apache 2.0, Copyright Prophesee S.A.).
+
+# drivers/lepton: FLIR Lepton SDK
+[[annotations]]
+path = "drivers/lepton/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright 2011-2014 FLIR Systems - Commercial Vision Systems"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: all 23 headers carry an identical FLIR three-clause BSD grant (the "Proprietary" line is an export-control banner, not a restriction).
+
+# drivers/lsm6ds3, lsm6dsm, lsm6dsox: ST
+[[annotations]]
+path = [
+  "drivers/lsm6ds3/include/**",
+  "drivers/lsm6ds3/src/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2019 STMicroelectronics"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: file headers ("licensed by ST under BSD 3-Clause license"); LICENSE is BSD 3-Clause, 2019 STMicroelectronics.
+
+[[annotations]]
+path = [
+  "drivers/lsm6dsm/include/**",
+  "drivers/lsm6dsm/src/**",
+  "drivers/lsm6dsox/include/**",
+  "drivers/lsm6dsox/src/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2021 STMicroelectronics"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: file headers ("licensed by ST under BSD 3-Clause license", 2021).
+
+# drivers/mlx90621, mlx90640, mlx90641: Melexis
+[[annotations]]
+path = [
+  "drivers/mlx90621/**",
+  "drivers/mlx90640/**",
+  "drivers/mlx90641/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (C) 2017 Melexis N.V."
+SPDX-License-Identifier = "Apache-2.0"
+# Evidence: file headers (Apache 2.0, Melexis N.V.) and LICENSE files (Apache 2.0 text).
+
+# drivers/nema: Think Silicon NemaGFX
+[[annotations]]
+path = [
+  "drivers/nema/include/nema_*.h",
+  "drivers/nema/include/tsi_malloc.h",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2023 Think Silicon Single Member PC"
+SPDX-License-Identifier = "LicenseRef-ThinkSilicon-NemaGFX"
+# Evidence: identical 'Materials' MIT-style header in every header (extra no-misrepresentation clause, so not plain MIT).
+
+# Overrides the glob above: this one header is ST's BSD-3-Clause port definition.
+[[annotations]]
+path = "drivers/nema/include/nema_sys_defs.h"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2019 STMicroelectronics"
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: header ("licensed by ST under BSD 3-Clause license").
+
+[[annotations]]
+path = [
+  "drivers/nema/include/build_version.h",
+  "drivers/nema/lib/*.a",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "Copyright Think Silicon S.A.",
+  "Copyright STMicroelectronics",
+]
+SPDX-License-Identifier = "LicenseRef-ST-SLA0048-ThinkSilicon"
+# Evidence: drivers/nema/LICENSE.pdf (ST SLA0048 with Annex 2, Think Silicon user driver licence; Annex 1 lists the owners).
+
+# drivers/nrf: Nordic S140 SoftDevice
+[[annotations]]
+path = "drivers/nrf/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2007-2018 Nordic Semiconductor ASA"
+SPDX-License-Identifier = "LicenseRef-Nordic-5-Clause"
+# Evidence: s140_nrf52_6.1.1_license-agreement.txt and identical header in all 18 API headers; hex, PDF and dox ship in the same release.
+
+# drivers/vc8000: Verisilicon VC8000 encoder
+[[annotations]]
+path = [
+  "drivers/vc8000/include/**",
+  "drivers/vc8000/src/**",
+  "drivers/vc8000/st_readme.txt",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = [
+  "Copyright (c) 2015-2022 Verisilicon Inc.",
+  "Copyright (c) 2011-2014 Google Inc.",
+]
+SPDX-License-Identifier = "BSD-3-Clause"
+# Evidence: all 65 sources state "distributed under the terms of BSD-3-Clause"; st_readme.txt says ST set the package to BSD 3-Clause.
+
+# drivers/vl53l5cx, vl53l8cx: ST
+[[annotations]]
+path = [
+  "drivers/vl53l5cx/**",
+  "drivers/vl53l8cx/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2021 STMicroelectronics"
+SPDX-License-Identifier = "BSD-3-Clause-Clear"
+# Evidence: headers point to the LICENSE file ("The clear BSD license", ST wording); platform.h/platform.c are OpenMV MIT and carry their own tags.
+
+# drivers/winc1500: Microchip / Atmel WINC1500
+[[annotations]]
+path = [
+  "drivers/winc1500/include/**",
+  "drivers/winc1500/src/**",
+  "drivers/winc1500/patches/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2016-2018 Microchip Technology Inc. and its subsidiaries."
+SPDX-License-Identifier = "LicenseRef-Microchip-ASF"
+# Evidence: 45 ASF headers with identical Microchip terms ("exclusively with Microchip products"); patches/nmasic.c patches one of them.
+
+# Overrides the glob above: Atmel-era BSD file and OpenMV glue.
+[[annotations]]
+path = "drivers/winc1500/include/conf_winc.h"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2015 Atmel Corporation. All rights reserved."
+SPDX-License-Identifier = "LicenseRef-Atmel-ASF-BSD"
+# Evidence: header (Atmel three-clause BSD variant).
+
+[[annotations]]
+path = "drivers/winc1500/include/bsp/include/nm_bsp_openmv.h"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (C) 2013-2024 OpenMV, LLC."
+SPDX-License-Identifier = "MIT"
+# Evidence: OpenMV board glue with no vendor text; sibling winc.h is MIT with this holder.
+
+[[annotations]]
+path = "drivers/winc1500/firmware/**"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (c) 2015 Atmel Corporation. All rights reserved."
+SPDX-License-Identifier = "LicenseRef-Atmel-ASF-BSD"
+# Evidence: drivers/winc1500/firmware/LICENSE (Atmel BSD variant) sits beside the .bin blobs.
+
+# drivers/drivers.mk
+[[annotations]]
+path = "drivers/drivers.mk"
+precedence = "closest"
+SPDX-FileCopyrightText = "Copyright (C) 2013-2024 OpenMV, LLC."
+SPDX-License-Identifier = "MIT"
+# Evidence: file already carries an MIT SPDX tag and header.
+
+# ---- rest ----
+# Licence declarations for the repo root, CI, docs, docker, boards, tools and scripts.
+# Slice "rest". Paths exclude boards/OPENMV_AE3 and scripts/libraries/alif.
+
+# Repo root, CI, docker and docs: no licence text; README.md "Licensing" says most code is MIT.
+[[annotations]]
+path = [
+    ".gitattributes",
+    ".gitignore",
+    ".gitmodules",
+    "Makefile",
+    "README.md",
+    "SDK_VERSION",
+    ".github/**",
+    "docker/**",
+    "docs/**",
+]
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+
+# Board configs: headers say "licensed under the MIT license" (OpenMV, Arduino and Arm MPS boards alike).
+[[annotations]]
+path = [
+    "boards/ARDUINO_GIGA/**",
+    "boards/ARDUINO_NANO_33_BLE_SENSE/**",
+    "boards/ARDUINO_NANO_RP2040_CONNECT/**",
+    "boards/ARDUINO_NICLA_VISION/**",
+    "boards/ARDUINO_PORTENTA_H7/**",
+    "boards/MPS2_AN500/**",
+    "boards/MPS3_AN547/**",
+    "boards/OPENMV1/**",
+    "boards/OPENMV2/**",
+    "boards/OPENMV3/**",
+    "boards/OPENMV4/**",
+    "boards/OPENMV4P/**",
+    "boards/OPENMVPT/**",
+    "boards/OPENMV_N6/**",
+    "boards/OPENMV_RT1060/**",
+    "boards/RPI_PICO/**",
+]
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+
+# Tools: headers say MIT where present (e.g. tools/pydfu.py, gen_*.py); headerless files follow README.
+[[annotations]]
+path = [
+    "tools/README.md",
+    "tools/alif_pins_gen.py",
+    "tools/augment_images.py",
+    "tools/calc_ir_table.py",
+    "tools/check_examples_index.py",
+    "tools/ci.sh",
+    "tools/client.py",
+    "tools/code_size.py",
+    "tools/codeformat.sh",
+    "tools/create_labels.py",
+    "tools/draw_rainbow.py",
+    "tools/encode_raw.py",
+    "tools/flash_recovery_key.py",
+    "tools/flash_test.py",
+    "tools/gen_crc_table.py",
+    "tools/gen_fft.py",
+    "tools/gen_linker.py",
+    "tools/gen_rainbow.py",
+    "tools/gen_rgb2lab.py",
+    "tools/gen_sin_cos.py",
+    "tools/haar2c.py",
+    "tools/imxrt_pins_gen.py",
+    "tools/keypoints_editor.py",
+    "tools/make_patches.py",
+    "tools/mkromfs.py",
+    "tools/modelc.py",
+    "tools/mpremote-qemu-serial.patch",
+    "tools/objfind.py",
+    "tools/optflow.py",
+    "tools/pdm_lut.c",
+    "tools/pydfu.py",
+    "tools/run_test.sh",
+    "tools/saleae_test.py",
+    "tools/uncrustify.cfg",
+    "tools/vela.ini",
+    "tools/vendor_stai.sh",
+]
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+
+# Examples and unit tests: headers say "licensed under the MIT license"; images and data are test fixtures with no
+# third-party notice in the repo, so they follow the README.
+[[annotations]]
+path = [
+    "scripts/examples/**",
+    "scripts/unittest/tests/**",
+    "scripts/unittest/bench/**",
+    "scripts/unittest/run.py",
+    "scripts/unittest/data/*.pgm",
+    "scripts/unittest/data/*.ppm",
+    "scripts/unittest/data/*.bmp",
+    "scripts/unittest/data/*.jpeg",
+    "scripts/unittest/data/*.csv",
+    "scripts/unittest/data/*.orb",
+]
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+
+# OpenMV libraries: headers say MIT where present (lora.py, ssd1351.py add third-party copyright lines in-file).
+# Headerless drivers/manifests follow README. ml manifest.py files carry no clause-3 header (see report).
+[[annotations]]
+path = [
+    "scripts/libraries/README.md",
+    "scripts/libraries/_boot.py",
+    "scripts/libraries/bno055.py",
+    "scripts/libraries/display.py",
+    "scripts/libraries/gt911.py",
+    "scripts/libraries/lora.py",
+    "scripts/libraries/machine.py",
+    "scripts/libraries/modbus.py",
+    "scripts/libraries/mutex.py",
+    "scripts/libraries/openamp.py",
+    "scripts/libraries/pca9674a.py",
+    "scripts/libraries/pid.py",
+    "scripts/libraries/romfs.py",
+    "scripts/libraries/rpc.py",
+    "scripts/libraries/rtsp.py",
+    "scripts/libraries/sensor.py",
+    "scripts/libraries/ssd1306.py",
+    "scripts/libraries/ssd1351.py",
+    "scripts/libraries/st7701.py",
+    "scripts/libraries/tb6612.py",
+    "scripts/libraries/vl53l1x.py",
+    "scripts/libraries/apds9960/manifest.py",
+    "scripts/libraries/microdot-lib/manifest.py",
+    "scripts/libraries/protocol/**",
+    "scripts/libraries/ml/*/manifest.py",
+]
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "MIT"
+
+# apds9960 library: LICENSE is the verbatim GPL v3 text, no "or later" wording anywhere in the tree.
+# Authors from ChangeLog (Thomas Liske, micropython port by Thomas Waldmann). manifest.py is OpenMV's (MIT above).
+[[annotations]]
+path = [
+    "scripts/libraries/apds9960/ChangeLog",
+    "scripts/libraries/apds9960/README.md",
+    "scripts/libraries/apds9960/apds9960/**",
+]
+SPDX-FileCopyrightText = [
+    "Thomas Liske <thomas@fiasko-nw.net>",
+    "Thomas Waldmann",
+]
+SPDX-License-Identifier = "GPL-3.0-only"
+
+# GPL v3 licence text shipped in the apds9960 tree.
+[[annotations]]
+path = "scripts/libraries/apds9960/LICENSE"
+SPDX-FileCopyrightText = "Free Software Foundation, Inc."
+SPDX-License-Identifier = "GPL-3.0-only"
+
+# ml libraries: every .py carries the OpenMV clause-3 header (personal benefit, no commercial purpose).
+[[annotations]]
+path = "scripts/libraries/ml/*/ml/**"
+SPDX-FileCopyrightText = "OpenMV, LLC"
+SPDX-License-Identifier = "LicenseRef-OpenMV-NonCommercial"
+
+# micropython-lib derived: full MIT text and "micropython-lib contributors" copyright in the headers.
+[[annotations]]
+path = [
+    "scripts/libraries/mqtt.py",
+    "scripts/libraries/requests.py",
+]
+SPDX-FileCopyrightText = "2013, 2014 micropython-lib contributors"
+SPDX-License-Identifier = "MIT"
+
+# uftpd.py header: "Distributed under MIT License", copyright lines for five contributors.
+[[annotations]]
+path = "scripts/libraries/uftpd.py"
+SPDX-FileCopyrightText = [
+    "2016 Christopher Popp",
+    "2016 Paul Sokolovsky",
+    "2016 Robert Hammelrath",
+    "2020 Jan Wieck",
+    "2021 JD Smith",
+]
+SPDX-License-Identifier = "MIT"
+
+# uping.py header: "copyright (c) 2018 Shawwwn", "License: MIT".
+[[annotations]]
+path = "scripts/libraries/uping.py"
+SPDX-FileCopyrightText = "2018 Shawwwn <shawwwn1@gmail.com>"
+SPDX-License-Identifier = "MIT"
+
+# utelnet.py header: "Public domain code." with source https://github.com/cpopp/MicroTelnetServer.
+[[annotations]]
+path = "scripts/libraries/utelnet.py"
+SPDX-FileCopyrightText = "cpopp (https://github.com/cpopp/MicroTelnetServer)"
+SPDX-License-Identifier = "LicenseRef-MicroTelnetServer-PublicDomain"
+
+# Header names the author (Grant Phillips) and gives no licence; follows the README MIT default.
+[[annotations]]
+path = "scripts/libraries/I2C_Lidar_Lite_V3_example_code.py"
+SPDX-FileCopyrightText = "Grant Phillips"
+SPDX-License-Identifier = "MIT"
+
+# Unit test cascades are byte-for-byte conversions (tools/haar2c.py) of lib/haar XML files:
+# cat.cascade == haarcascade_frontalcatface.xml; frontalface.cascade == first 15 stages of haarcascade_frontalface.xml.
+[[annotations]]
+path = "scripts/unittest/data/cat.cascade"
+SPDX-FileCopyrightText = "2014-2016 Joseph Howse (Nummist Media Corporation Limited)"
+SPDX-License-Identifier = "LicenseRef-OpenCV-Contributors"
+
+[[annotations]]
+path = "scripts/unittest/data/frontalface.cascade"
+SPDX-FileCopyrightText = "2000 Intel Corporation"
+SPDX-License-Identifier = "LicenseRef-Intel-OpenCV"
+
+# Prebuilt third-party binaries: tools/README.md gives the sources (BOSSA, picotool).
+# bossac prints "Copyright (c) 2011-2018 ShumaTech"; no licence text ships in the repo, BSD-3-Clause per upstream LICENSE.
+[[annotations]]
+path = "tools/bossac"
+SPDX-FileCopyrightText = "2011-2018 ShumaTech"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# picotool: tools/README.md cites raspberrypi/picotool; upstream LICENSE.TXT is BSD-3-Clause (Raspberry Pi (Trading) Ltd.).
+[[annotations]]
+path = "tools/picotool"
+SPDX-FileCopyrightText = "2020 Raspberry Pi (Trading) Ltd."
+SPDX-License-Identifier = "BSD-3-Clause"
+
