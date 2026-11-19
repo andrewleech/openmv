@@ -1,0 +1,636 @@
+Transcribed from drivers/boson/LICENSE.pdf (text extracted from the PDF; table layout of page 1 reflowed in reading order).
+
+BOSON TOOLS AND SOFTWARE DEVELOPMENT KIT (SDK) LICENSE AGREEMENT
+BY DOWNLOADING, INSTALLING, COPYING, ACCESSING OR USING THE FLIR SOFTWARE DEVELOPMENT KIT
+(SDK) (DEFINED BELOW), YOU AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU ARE
+ACCEPTING THESE TERMS ON BEHALF OF AN ENTITY, YOU REPRESENT AND WARRANT THAT YOU HAVE THE
+AUTHORITY TO BIND SUCH ENTITY TO THE TERMS OF THIS AGREEMENT.
+THIS SOFTWARE DEVELOPMENT KIT (SDK)
+LICENSE AGREEMENT (“Agreement”) is a legal
+agreement between you, an individual or entity
+(“Developer,” “you” or “your”) and FLIR Systems Inc., and
+its Affiliates (together, “FLIR”), and governs your use of
+any one of a family of FLIR SOFTWARE
+DEVELOPMENT KITs (SDKs), inclusive of the FLIR
+Mobile SDKs, FLIR Atlas SDK, FLIR Desktop SDKs, and
+FLIR Camera Module SDKs. The terms of this Agreement
+apply to any updates, supplements, and/or support services
+(if any) for the above-mentioned SDKs unless other terms
+accompany those items. If so, those terms apply.
+FLIR has developed a family of software development kits
+(SDKs) that are made to be used with FLIR devices (the
+“Device” or “Devices). FLIR has developed a licensing
+program (“Licensing Program”) whereby FLIR makes
+available to software developers the FLIR SOFTWARE
+DEVELOPMENT KIT (“SDK”) for purposes of enabling
+such developers to develop applications for use with the
+Device (“Application(s)”), which the developers may then
+distribute and/or license to end users (“End Users”) or use
+internally to support their own business processes.
+The SDK is made available in connection with FLIR’s
+Licensing Program for use by Developer in developing
+Applications for use with the Device. Developer desires to
+use the SDK for purposes of developing Applications,
+subject to and in strict accordance with the terms and
+conditions of this Agreement.
+In consideration of the foregoing and the mutual obligations
+of the parties set forth in this Agreement, the receipt and
+sufficiency of which is hereby acknowledged, you and FLIR
+agree as follows:
+DEFINITIONS. In addition to any other defined terms set
+forth herein, the following capitalized terms will have the
+meanings set forth below.
+1.1
+“Affiliate(s)” means an individual, corporation or
+other entity which directly (or indirectly through one or
+more intermediaries) controls at least twenty-five percent
+(25%) of the outstanding voting shares or securities, is
+controlled by, or is under common control with the a party
+to this Agreement.
+1.2
+“FLIR Documentation” means any written or
+electronic documentation that is provided to Developer by
+FLIR for use in connection with the FLIR SDK.
+1.3
+“FLIR SDK” means The FLIR Software, and the
+FLIR Documentation.
+
+1 – FLIR SDK LICENSE AGREEMENT (Version 1 November 2018)
+
+1.4
+“FLIR Software” means the software development
+tools and sample code that are provided to Developer by
+FLIR in source code form and/or machine readable form
+pursuant to this Agreement.
+1.5
+“Intellectual Property Right(s)” means all rights
+of the following types, which may exist or be created under
+the laws of any jurisdiction in the world: (i) rights associated
+with works of authorship, including exclusive exploitation
+rights, copyrights, moral rights, and mask works; (ii)
+trademark and trade name rights and similar rights; (iii)
+trade secret rights; (iv) patents and industrial property rights;
+and (v) other proprietary rights in intellectual property of
+every kind and nature.
+1.6
+“Standard Releases” shall mean releases of the
+FLIR SDK which may contain updates, enhancements
+and/or improvements authorized and made available only by
+FLIR from time to time in FLIR’s sole discretion.
+1.7
+“Open Source Code” means any software code
+that is distributed as “free software” or “open source
+software” or that is otherwise distributed publicly in source
+code form under terms that permit modification and
+redistribution of such software.
+2.
+
+LICENSE.
+
+2.1
+License Grants.
+FLIR hereby grants to
+Developer, during the term of this Agreement and subject to
+the terms and conditions set forth herein, a personal,
+revocable, limited, non-exclusive, non-transferable, nonassignable, non-sublicensable, royalty-free license to: (i)
+install and/or use the FLIR Software for Developer’s
+internal use solely in the manner described in the FLIR
+Documentation and for the sole purpose of developing,
+testing, and debugging Applications; (ii) use the FLIR
+Documentation solely for Developer’s internal use in
+developing, testing, and debugging Applications; and (iii)
+use and make calls to the FLIR APIs for Developer’s
+internal use solely in the manner described in the FLIR
+Documentation and for the sole purpose of developing,
+implementing, and using Applications (collectively, the
+“License”).
+2.2
+License Restrictions. Developer agrees that the
+License granted in Section 2.1 above, in addition to any
+other limitations set forth in this Agreement, is subject to the
+following limitations:
+(i)
+Developer’s right to use the FLIR SDK is
+for purposes of developing, implementing and using
+Applications soley in conjunction with a Device. Developer
+shall not use the FLIR SDK for any other purpose, nor may
+Developer use the FLIR SDK in connection with any other
+
+software application or product other than in connection
+with its Applications. Developer may not use the FLIR
+SDK to create Applications for use with non-FLIR thermal
+imaging devices. Developer shall not undertake, develop or
+distribute any Applications or otherwise make any other
+product, service or other content available through its
+Applications the use of which, either standing alone or in
+conjunction with any other software, systems, networks or
+data, contain functionality that could be used with non-FLIR
+thermal imaging products, as a direct competitor to a
+product, products, or Applications sold by FLIR, for
+inappropriate or improper purposes, or for the purpose of
+interfering with the proper operation of, degrading, causing
+damage to, or otherwise adversely affecting the operation of
+any FLIR or third party software, hardware, services,
+systems, networks, or data. Developer may not copy the
+FLIR Software or any portion thereof except as permitted
+herein; provided that, Developer may make a single
+unmodified copy of the FLIR Software for back-up and/or
+archival purposes. Developer shall not alter, obscure or
+remove any copyright notices or any other ownership or
+proprietary rights notices placed on or contained in the FLIR
+SDK, or any part thereof. Developer shall not remove any
+Licese attribution or other Open Source Code license
+compliance content included with the SDK. The FLIR SDK
+is licensed and not sold. All rights not expressly granted to
+Developer under the License are reserved by FLIR, and
+Developer shall not take or permit any third party to take
+any action with respect to the FLIR SDK that is not
+expressly authorized under this Agreement.
+(ii)
+Developer shall not rent, lease, transfer,
+sublicense, sell, assign, timeshare or pledge the FLIR SDK,
+or any portion thereof, to any third party whether on a
+temporary or permanent basis, or allow any third party to
+access or use the FLIR SDK for any purpose, without the
+prior written approval of FLIR. In particular, the FLIR
+SDK remains the property of FLIR, returnable upon the
+expiration or termination of this Agreement or upon FLIR’s
+earlier written request. Developer shall not, either directly
+or indirectly, reverse engineer, translate, modify, alter,
+decompile, create derivates of or otherwise attempt to derive
+the source code of the FLIR SDK, other than as expressly
+authorized in this Agreement. Developer may permit third
+party contractors acting on its behalf and under its
+supervision to use the FLIR SDK for the purposes
+authorized hereunder; however, Developer shall remain
+responsible for all acts and omissions of its contractor(s),
+including without limitation, any unauthorized use of the
+FLIR SDK by any such contractor.
+A breach by
+Developer’s contractor of the terms and conditions of this
+Agreement shall be deemed a breach of this Agreement by
+Developer.
+(iii)
+Without prior authorization by FLIR,
+Developer shall not use, combine, incorporate, or otherwise
+link or distribute the FLIR SDK, or any part thereof,
+whether in connection with an App or otherwise, with any
+Open Source Code licensed under any terms that: (a) impose
+
+2 – FLIR SDK LICENSE AGREEMENT (Version 1 November 2018)
+
+or could impose a requirement or condition that the FLIR
+SDK, or any part thereof: (1) be disclosed or distributed in
+source code form; (2) be licensed for the purpose of making
+modifications or derivative works; or (3) be redistributable
+at no charge; or (b) otherwise impose or could impose any
+other material limitation, restriction, or condition on the
+right or ability of FLIR, its licensors, successors, and
+assigns, to use or distribute the FLIR SDK, or any part
+thereof.
+3.
+USE OF THE FLIR SDK.
+Developer
+acknowledges and agrees that Developer shall be
+responsible for all use of the FLIR SDK by Developer
+hereunder. In particular:
+3.1
+Developer shall use the FLIR SDK only as
+authorized in this Agreement and as described in the FLIR
+Documentation. All use of the FLIR SDK by Developer
+hereunder shall strictly comply with all applicable laws and
+regulations, and all Applications developed by Developer
+hereunder and the intended use for such Applications shall
+strictly comply with all applicable laws and regulations.
+3.2
+Developer’s Applications and any products,
+services or content made available through such
+Applications shall not contain any: (i) virus, Trojan horse,
+worm, backdoor, shutdown mechanism, malicious code,
+sniffer, bot, drop dead mechanism, or spyware; or (ii) any
+other software, code, or program that is likely to or is
+intended to: (a) have an adverse impact on the performance
+of; (b) disable, corrupt, or cause damage to; or (c) cause or
+facilitate unauthorized access to or deny authorized access
+to, or cause to be used for any unauthorized or inappropriate
+purpose, any software, hardware, network, services, systems
+or data (collectively, “Malware”). Developer shall inform
+FLIR of any Malware affecting its Applications of which
+Developer becomes aware.
+4.
+
+USE OF THE FLIR APIs.
+
+4.1
+
+RESERVED
+
+5.
+MARKETING
+APPLICATIONS.
+
+AND
+
+DISTRIBUTION
+
+OF
+
+5.1
+Distribution of Applications. Developer shall
+enter into a license agreement (“License Agreement”) with
+each End User to whom it licenses and/or distributes an
+Application. At a minimum, such License Agreement shall
+include terms which (i) restrict the use of the Applications to
+legal, non-tortious uses; (ii) release and hold harmless FLIR
+for any and all liability in connection with an End User’s use
+of the Applications; (iii) limit any liability of FLIR in
+connection with an End User’s use of the Applications in
+accordance with the exclusions and limitations of liability
+set forth below; and (iv) permit the termination of the
+License Agreement in the event FLIR withdraws its
+
+approval of the App pursuant to this Section, or the
+expiration or termination of this Agreement.
+5.2
+Trademarks. FLIR may require Applications
+created using the SDK to display the FLIR logo (the
+“Logo”) by default. When displaying the FLIR Logo, the
+Logo must be displayed in the same manner in which the
+functionality of the FLIR SDK causes the Logo to be
+displayed, and Developer agrees not to modify, alter, cutapart, or otherwise distort the Logo in any way. FLIR
+hereby grants to Developer, during the term and subject to
+the terms and conditions of this Agreement, a limited,
+terminable, revocable, non-exclusive, non-sublicensable,
+non-transferrable, royalty-free license to display the Logo as
+part of any App, but only in the manner in which the
+functionality of the FLIR SDK causes the Logo to be
+displayed on such Images. FLIR reserves the right to
+monitor and approve all use of the Logo by Developer
+hereunder, as determined by FLIR in its sole and absolute
+discretion. Other than as expressly set forth in this Section,
+no other right, title or interest is granted by FLIR in the
+Logo, or in any other FLIR trademarks, service marks,
+designs, or logos, and Developer shall not use the Logo or
+any other FLIR trademarks, service marks, designs, or logos
+except as expressly authorized by this Agreement.
+6.
+
+CONFIDENTIAL INFORMATION.
+
+6.1
+Confidential Information. Developer shall not
+disclose or use FLIR’s Confidential Information (as defined
+below) except as provided in this Agreement. Developer
+may disclose Confidential Information to its agents or
+employees who have a need to know and who are bound in
+writing by confidentiality terms no less restrictive than those
+contained herein. Notwithstanding the foregoing,
+Confidential Information may be disclosed if required by
+law, provided, however, that Developer shall notify FLIR of
+such requirement immediately in writing and will
+reasonably cooperate with FLIR in obtaining a protective or
+similar order. “Confidential Information” means (a) the
+Software and related technology, algorithms, and
+information contained therein, including related trade
+secrets; and (b) any other information, including but not
+limited to product plans, designs, prices, non-published
+financial information, business opportunities, research,
+development, and know-how designated as confidential at
+the time of disclosure or that Developer should know is
+confidential. “Confidential Information” does not include
+information that (i) can be demonstrated by written records
+was in Developer’s possession prior to disclosure by FLIR;
+(ii) is or becomes publicly known or readily ascertainable
+without breach of this Agreement; (iii) is lawfully received
+by Developer from a third party without an obligation of
+confidentiality; (iv) is disclosed by FLIR to a third party
+without an obligation of confidentiality on the part of the
+third party; (v) is independently developed by Developer; or
+(vi) is disclosed by Developer with FLIR’s prior written
+consent
+
+3 – FLIR SDK LICENSE AGREEMENT (Version 1 November 2018)
+
+6.2
+Return of Confidential Infomration. Upon
+FLIR’s written request, Developer shall promptly return or
+destroy all of FLIR’s Confidential Information.
+7.
+FEEDBACK. Developer shall promptly report to
+FLIR all bugs, malfunctions or other defects discovered by
+Developer in connection with its use of the FLIR SDK, and
+Developer may further provide suggestions, comments or
+other feedback to FLIR based on such use of the FLIR SDK.
+All information regarding any bugs, malfunctions or defects
+and all such suggestions, comments or other feedback
+provided by Developer hereunder are herein referred to as
+“Feedback.” Developer acknowledges and agrees that FLIR
+shall be the sole and exclusive owner of all right, title and
+interest in the Feedback, including without limitation, all
+trade secrets, know-how, patents, copyrights or other
+Intellectual Property Rights embodied in the Feedback.
+Developer intends that the Feedback, including any part
+thereof, be deemed “works made for hire” of which FLIR
+shall be deemed the author. If for any reason any such
+Feedback is not deemed “works made for hire” or if for any
+reason ownership of the Feedback, including without
+limitation, all Intellectual Property Rights associated
+therewith, is not otherwise fully vested in FLIR as a result of
+such designation, Developer hereby irrevocably assigns to
+FLIR all of Developer’s right, title, and interest in and to
+any and all of such Feedback, whether arising from
+copyright, patent, trademark, trade secret, or any other
+intellectual property law or doctrine.
+If any right
+(including, without limitation, any moral right) in such
+Feedback cannot be assigned, Developer hereby waives
+enforcement anywhere in the world of such right against
+FLIR and exclusively and perpetually licenses such right to
+FLIR, its licensees, successors and assigns.
+8.
+
+EXPORT RESTRICTIONS.
+
+8.1
+Export Restrictions. Developer acknowledges
+and agrees that the FLIR SDK may be subject to
+governmental export, import and/or use controls. Developer
+shall not export, re-export, import, use or transfer the FLIR
+SDK except in compliance with the laws and regulations of
+the countries and/or territories from which the FLIR SDK is
+being exported or to which the FLIR SDK is being
+imported. At a minimum, the FLIR SDK shall not be
+exported to: (i) any country subject to U.N. Security Council
+embargo or action; (ii) to countries subject to U.S. economic
+sanctions and embargoes; or (iii) to persons or entities
+prohibited from receiving U.S. exports or items or material
+originating from the U.S.
+9.
+REPRESENTATIONS AND WARRANTIES;
+DISCLAIMER; LIMITATION OF LIABILITY.
+9.1
+Disclaimer.
+FLIR
+MAKES
+NO
+REPRESENTATIONS
+OR
+WARRANTIES
+WITH
+RESPECT TO THE FLIR SDK, THE CONFIDENTIAL
+INFORMATION,
+AND/OR
+THE
+LOGO
+AND
+
+DEVELOPER ACKNOWLEDGES AND AGREES THAT
+THE SAME IS BEING PROVIDED HEREUNDER “AS
+IS”
+AND
+WITHOUT
+REPRESENTATION
+OR
+WARRANTY OF ANY KIND.
+THE FOREGOING
+PROVISIONS
+ARE
+IN
+LIEU
+OF
+ANY
+REPRESENTATION OR WARRANTY, WHETHER
+EXPRESS OR IMPLIED, WRITTEN OR ORAL
+(INCLUDING
+ANY
+WARRANTY
+OF
+MERCHANTABILITY
+OR
+FITNESS
+FOR
+A
+PARTICULAR PURPOSE OR WARRANTY OF NONINFRINGEMENT),
+AND
+ALL
+SUCH
+REPRESENTATIONS
+OR
+WARRANTIES
+ARE
+EXPRESSLY DISCLAIMED. FLIR SHALL HAVE NO
+LIABILITY, WHETHER TO DEVELOPER OR TO
+DEVELOPER’S END USERS, ARISING OUT OF
+DEVELOPER’S USE OF THE FLIR SDK, THE
+CONFIDENTIAL INFORMATION, THE LOGO, AND/OR
+DEVELOPER’S APPLICATIONS, WHETHER BASED
+UPON
+WARRANTY,
+CONTRACT,
+TORT
+OR
+OTHERWISE.
+9.2
+Limitation of Liability. IN NO EVENT SHALL
+FLIR OR ITS LICENSORS BE LIABLE TO
+DEVELOPER, ANY END USER OR TO ANY THIRD
+PARTY FOR ANY INDIRECT, SPECIAL OR
+CONSEQUENTIAL
+DAMAGES,
+INCLUDING
+WITHOUT LIMITATION, ANY LOSS OF PROFITS,
+LOSS OF DATA OR EQUIPMENT DOWNTIME, EVEN
+IF FLIR HAS BEEN ADVISED OF THE POSSIBILITY
+THEREOF AND REGARDLESS OF THE THEORY OF
+LIABILITY UNDER WHICH ANY SUCH DAMAGES
+ARE SOUGHT. IN THE EVENT THAT ANY LIABILITY
+IS IMPOSED ON FLIR FOR ANY REASON
+WHATSOEVER, THE AGGREGATE AMOUNTS
+PAYABLE BY FLIR BY REASON THEREOF SHALL
+NOT EXCEED THE TOTAL AMOUNT OF $50 USD.
+Developer acknowledges that the foregoing limitations are
+an essential element of the Agreement between the parties
+and that in the absence of such limitations the pricing and
+other terms set forth in this Agreement would be
+substantially different.
+10.
+
+INDEMNITY.
+
+10.1
+Developer hereby agrees to defend, indemnify and
+hold harmless FLIR and its successors, Affiliates, and
+assigns, and their respective current and former officers,
+directors, members, stockholders, licensors, agents,
+employees, and attorneys (the “Indemnified Parties”) for,
+from, and against any and all Indemnified Claims.
+“Indemnified Claims” means any and all actions,
+allegations, causes of action, suits, proceedings, claims,
+demands, judgments, settlements, penalties, damages,
+losses, liabilities, costs, and expenses (including without
+limitation FLIR’s reasonable attorneys’ fees and costs and
+those necessary to interpret or enforce this Section arising
+out of or relating to: (i) any breach by Developer of any
+provision of this Agreement, including without limitation,
+any representations, warranties or covenants set forth herein;
+
+4 – FLIR SDK LICENSE AGREEMENT (Version 1 November 2018)
+
+(ii) any misrepresentation, fraud, misconduct, or violation of
+applicable laws and regulations arising out of Developer’s or
+its representatives or agents’ acts or omissions relating to
+this Agreement and/or Developer’ use of the FLIR SDK;
+(iii) any negligent act or omission of Developer or its
+representatives or agents relating to this Agreement and/or
+Developer’s use of the FLIR SDK; (iv) any License
+Agreement between Developer and its End Users, including
+without limitation, any breach or violation by Developer
+thereof; (v) any tortious acts or other injury or damage to
+persons or property (including death) arising from or related
+to: (a) the misuse or unauthorized use of the Logo (or any
+other FLIR trademarks, service marks, designs or logos) or
+the FLIR SDK, or any portion thereof, include without
+limitation, any use of the FLIR SDK in violation of this
+Agreement; or (b) any Applications, or any products, service
+or content made available through such Applications; or (vi)
+the infringement, violation or misappropriation (including
+any allegations thereof) of any Intellectual Property Rights,
+including without limitation, any patent, design, industrial
+design, copyright, trade secret or trademark or other third
+party proprietary right of any kind to the extent based on: (a)
+the Applications or the use thereof, or the combination of
+the Applications with any other hardware, software, system,
+or service; (b) any product, service or content made
+available, or required to be made available through the
+Applications; or (c) Developer’s combination of the FLIR
+SDK or any portion thereof with any hardware, software,
+system, or service. Developer will defend the Indemnified
+Parties from any and all Indemnified Claims, will pay all
+reasonable attorneys’ and expert witness fees and costs
+relating to such defense, and will, except as otherwise set
+forth in this Section, take all actions and conduct all
+proceedings in connection with such defense as required to
+settle or defend such Indemnified Claims, including without
+limitation the employment of counsel reasonably
+satisfactory to FLIR.
+10.2
+FLIR will provide Developer with notice of any
+Indemnified Claims. At Developer’s expense, FLIR will
+provide reasonable cooperation to Developer in connection
+with the defense or settlement of any such Indemnified
+Claims. Developer may not settle any Indemnified Claims
+on FLIR’s behalf without first obtaining FLIR’s written
+permission. Notwithstanding this Section, FLIR will have
+the right to immediately assume sole responsibility and
+control over the defense of any such Indemnified Claims
+and Developer acknowledges and agrees that FLIR’s
+exercise of such responsibility and control shall not relieve
+Developer of its indemnity obligations set forth in this
+Section.
+11.
+
+TERM AND TERMINATION.
+
+11.1
+Term. This Agreement shall commence as of
+the date Developer uses or clicks “I ACCEPT THE TERMS
+OF THIS LICENSE” (the “Effective Date”) and shall
+continue for a period of one (1) year unless earlier
+terminated in accordance with this Section.
+
+11.2
+
+Termination.
+
+(i)
+This Agreement may be terminated by
+FLIR upon the breach by Developer of any other term,
+provision, covenant, representation or warranty set forth in
+this Agreement if the breach remains uncured for a period of
+ten (10) calendar days after the date FLIR provides notice
+thereof to Developer. This Agreement may be terminated
+by either party by providing sixty (60) days advance notice
+to the other party.
+(ii)
+Upon the termination, expiration or
+cancellation of this Agreement, regardless of the cause
+(including, without limitation, termination by Developer),
+all rights granted to Developer hereunder, including without
+limitation the License, shall immediately and automatically
+cease and Developer shall: (a) cease all use of and/or access
+to the FLIR SDK; (b) return to FLIR or destroy, at FLIR’s
+option and at Developer’s expense, the FLIR SDK; (c)
+remove the App from iTunes and/or the App Store; (d)
+terminate any then current License Agreements for the App
+with its End Users; and (e) certify in writing to FLIR that
+Developer has taken the actions required in this Section.
+Developer shall have no right to use, license, and/or
+distribute any Applications following the termination and/or
+expiration of this Agreement. Provisions of this Agreement
+that by their terms, nature or context are intended by the
+parties to survive the termination, expiration or cancellation
+of this Agreement shall do so.
+12.
+
+GENERAL PROVISIONS.
+
+12.1
+Entire Agreement. This Agreement represents
+the entire understanding of the parties as of the Effective
+Date with respect to the subject matter hereof, and
+supersedes
+all
+prior
+agreements,
+negotiations,
+understandings, representations, statements, and writings
+between the parties relating thereto. No modification,
+alteration, wavier, or change in any of the terms of this
+Agreement shall be valid or binding upon the parties unless
+made in writing and executed by each of the parties. If any
+one or more of the provisions of this Agreement shall be
+held to be invalid, illegal or unenforceable, the validity,
+legality or enforceability of the remaining provisions of this
+Agreement shall not in any way be affected or impaired
+thereby. Neither this Agreement nor any interest herein is
+assignable by Developer without the prior written consent of
+FLIR. The failure of any party hereto to insist upon strict
+performance of any provision of this Agreement or to
+exercise any right hereunder will not constitute a waiver of
+that provision or right. Nothing herein contained shall be
+deemed to create an agency, joint venture or partnership
+relation between the parties hereto. It is understood and
+agreed that Developer is not, by reason of this Agreement or
+anything herein contained, constituted or appointed the
+agent or representative of FLIR for any purpose whatsoever,
+nor shall anything herein contained be deemed or construed
+as granting to Developer any right or authority to assume or
+
+5 – FLIR SDK LICENSE AGREEMENT (Version 1 November 2018)
+
+to create any obligation or responsibility for, on behalf of, or
+in the name of FLIR, or to bind FLIR in any way or manner
+whatsoever. This Agreement shall be controlled by and
+construed under the laws of the State of Oregon, USA
+(excluding its conflicts of laws principles) and not under the
+United Nations Convention on Contracts for the
+International Sales of Goods. The parties hereby expressly
+agree to the personal jurisdiction of such courts over them
+and waive any claim that such forum is an inconvenient
+forum. The parties do not intend to confer any right on any
+third party.
+12.2
+Notices. All notices or other communications that
+are required or permitted hereunder shall be in writing and
+sufficient if delivered personally, sent by prepaid overnight
+courier, sent by certified or registered mail, or sent by email
+or by facsimile transmission. Notices to Developer will be
+sent to the email or address on file with FLIR. Notices to
+FLIR must be sent to the address set forth below by prepaid
+overnight courier or certified mail:
+FLIR Systems Inc.
+Attention: General Counsel
+27700 SW Parkway Ave
+Wilsonville, Oregon 97070
+
+
